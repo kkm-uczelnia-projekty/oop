@@ -1,0 +1,6 @@
+[submodule "oop-lab-2"]
+	path = oop-lab-2
+	url = https://github.com/kkm-uczelnia-spam/oop-lab-2.git
+[submodule "lab2"]
+	path = lab2
+	url = https://github.com/kkm-uczelnia-spam/oop-lab-2.git
