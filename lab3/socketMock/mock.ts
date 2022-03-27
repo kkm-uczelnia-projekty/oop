@@ -1,21 +1,18 @@
 #!/usr/bin/env ts-node
 
-import WebSocket from "ws";
+import { createServer as createTcpServer } from "net";
 
-const main = () => {
-  const port = +`${process.env.WS_PORT || 1234}`;
-  const wss = new WebSocket.Server({
-    port,
+const server = createTcpServer((socket) => {
+  socket.on("connect", () => {
+    console.log("connect");
   });
 
-  console.log(`ws started on port ${port}`);
-  wss.on("connection", (ws) => {
-    console.log("connection");
-
-    ws.on("message", (data) => {
-      console.log(data);
-    });
+  socket.on("ready", () => {
+    console.log("ready");
   });
-};
 
-main();
+  socket.on("data", (data) => {
+    console.log(data.toString("utf-8"));
+  });
+});
+server.listen(1234);
