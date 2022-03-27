@@ -10,7 +10,7 @@ namespace Lab3
             {
                 new ConsoleLogger(),
                 new FileLogger("log.txt"),
-                new SocketLogger("google.com", 80)
+                new SocketLogger("localhost", 1234)
             };
 
             using (ILogger logger = new CommonLogger(loggers))
