@@ -7,11 +7,6 @@ namespace ConsoleApp.Logger
             this.writer = GetWriter(filename);
         }
 
-        override public void Dispose()
-        {
-            GC.SuppressFinalize(this);
-        }
-
         private TextWriter GetWriter(string path)
         {
             var fileExists = File.Exists(path);

@@ -12,6 +12,10 @@ namespace ConsoleApp.Logger
             }
         }
 
-        public abstract void Dispose();
+        public virtual void Dispose()
+        {
+            this.writer.Close();
+            GC.SuppressFinalize(this);
+        }
     }
 }

@@ -6,10 +6,5 @@ namespace ConsoleApp.Logger
         {
             this.writer = Console.Out;
         }
-
-        override public void Dispose()
-        {
-            GC.SuppressFinalize(this);
-        }
     }
 }
