@@ -8,8 +8,15 @@ namespace ConsoleApp.Logger
         {
             foreach (string message in messages)
             {
-                writer.WriteLine(message);
+                var formattedMessage = FormatMessage(message);
+                writer.WriteLine(formattedMessage);
             }
+        }
+
+        protected virtual string FormatMessage(string message)
+        {
+            var timestamp = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
+            return String.Format("{0}: {1}", timestamp, message);
         }
 
         public virtual void Dispose()
